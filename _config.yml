@@ -114,7 +114,7 @@ comments:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: # TODO: paste GA4 measurement ID (G-XXXXXXXXXX)
+    tracking_id: "G-6VYW7NDKTY"
     anonymize_ip: true
 
 # SEO / social previews
