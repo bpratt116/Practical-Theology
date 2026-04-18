@@ -74,6 +74,27 @@ remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Search (Lunr is built into Minimal Mistakes)
+search: true
+search_full_content: true
+search_provider: lunr
+
+# SEO / social previews
+logo: "/assets/profile.jpg"
+social:
+  type: Person
+  name: "Brendan Pratt"
+  links:
+    - "https://www.linkedin.com/in/brendanpratt/"
+    - "https://github.com/bpratt116"
+    - "https://twitter.com/bpratt116"
+    - "https://instagram.com/bpratt116"
+twitter:
+  username: bpratt116
 
 # Exclude from processing.
 # The following items will not be processed, by default.
