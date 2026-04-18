@@ -24,26 +24,32 @@ repository: bpratt116/Practical-Theology
 masthead_title: "Practical Theology"
 title_separator: "|"
 name: Brendan Pratt
-email: your-email@example.com
+email: # TODO: add real contact email
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://brendanpratt.org/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+  Notes on Scripture, prayer, and the Christian life by Brendan Pratt.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://brendanpratt.org" # the base hostname & protocol for your site
+twitter_username: bpratt116
+github_username: bpratt116
 
 author:
   name     : "Brendan Pratt"
   avatar   : "/assets/profile.jpg"
   bio      : "Practical Theology for every day life"
   location : "Ohio, USA"
-  email: "brendan@brendan.com"
   links:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/brendanpratt/"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/bpratt116"
+    - label: "Twitter"
+      icon: "fab fa-twitter"
+      url: "https://twitter.com/bpratt116"
+    - label: "Instagram"
+      icon: "fab fa-instagram"
+      url: "https://instagram.com/bpratt116"
 
 
 defaults:
