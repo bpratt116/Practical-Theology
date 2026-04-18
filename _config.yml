@@ -91,6 +91,32 @@ tag_archive:
   type: liquid
   path: /tags/
 
+# Comments — Giscus (https://giscus.app)
+# To enable: 1) enable Discussions on the repo, 2) install the Giscus GitHub app,
+# 3) visit https://giscus.app to generate the repo_id and category_id, then paste below.
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id              : # TODO: paste from giscus.app
+    category_name        : "General"
+    category_id          : # TODO: paste from giscus.app
+    discussion_term      : "pathname"
+    reactions_enabled    : "1"
+    theme                : "light"
+    strict               : "0"
+    input_position       : "bottom"
+    emit_metadata        : "0"
+    lang                 : "en"
+
+# Analytics — Google Analytics 4
+# To enable: create a GA4 property at https://analytics.google.com, copy the
+# Measurement ID (looks like G-XXXXXXXXXX), and paste it below.
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: # TODO: paste GA4 measurement ID (G-XXXXXXXXXX)
+    anonymize_ip: true
+
 # SEO / social previews
 logo: "/assets/profile.jpg"
 social:
