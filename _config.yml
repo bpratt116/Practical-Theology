@@ -83,6 +83,14 @@ search: true
 search_full_content: true
 search_provider: lunr
 
+# Archive pages (tags and categories)
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
 # SEO / social previews
 logo: "/assets/profile.jpg"
 social:
