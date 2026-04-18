@@ -97,9 +97,9 @@ tag_archive:
 comments:
   provider: "giscus"
   giscus:
-    repo_id              : # TODO: paste from giscus.app
-    category_name        : "General"
-    category_id          : # TODO: paste from giscus.app
+    repo_id              : "R_kgDOJOnGbQ"
+    category_name        : "Announcements"
+    category_id          : "DIC_kwDOJOnGbc4C7HhY"
     discussion_term      : "pathname"
     reactions_enabled    : "1"
     theme                : "light"
