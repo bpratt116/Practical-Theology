@@ -7,12 +7,7 @@ author_profile: true
 
 Send me a note — I read every message.
 
-<!--
-  Formspree contact form.
-  After creating your form at https://formspree.io,
-  replace YOUR_FORM_ID below with the ID Formspree gives you.
--->
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form action="https://formspree.io/f/xwvaoyga" method="POST">
   <label for="contact-name">Name</label>
   <input type="text" name="name" id="contact-name" required />
 
