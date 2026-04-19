@@ -212,3 +212,54 @@ a:hover,
 .giscus-frame {
   margin-top: 2rem;
 }
+
+/* -------- Mobile adjustments -------- */
+
+@media (max-width: 600px) {
+  .page__title {
+    font-size: 1.9rem;
+  }
+
+  .page__content > p:first-of-type::first-letter {
+    font-size: 3.6rem;
+    padding: 0.25rem 0.4rem 0 0;
+  }
+
+  .home-cta {
+    padding: 1.5rem 1rem;
+    margin: 2rem auto;
+  }
+
+  .home-cta form {
+    flex-direction: column;
+  }
+
+  .home-cta input[type="email"] {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .home-cta input[type="submit"],
+  .home-cta button {
+    width: 100%;
+  }
+
+  .post-author-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .post-author-footer img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Ensure long post content never creates horizontal scroll. */
+.page__content img,
+.page__content pre,
+.page__content table {
+  max-width: 100%;
+  overflow-x: auto;
+}
