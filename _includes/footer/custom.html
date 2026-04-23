@@ -5,3 +5,39 @@
   <span aria-hidden="true"> · </span>
   <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
 </div>
+
+<button type="button"
+        id="pt-theme-toggle"
+        class="theme-toggle"
+        aria-label="Toggle color theme"
+        title="Toggle color theme">
+  <span aria-hidden="true" id="pt-theme-icon">☾</span>
+</button>
+
+<script>
+  (function () {
+    var btn = document.getElementById('pt-theme-toggle');
+    var icon = document.getElementById('pt-theme-icon');
+    if (!btn || !icon) return;
+
+    function setIcon() {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      icon.textContent = isLight ? '☀' : '☾';
+      btn.setAttribute('aria-pressed', String(isLight));
+    }
+
+    setIcon();
+
+    btn.addEventListener('click', function () {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('pt-theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('pt-theme', 'light'); } catch (e) {}
+      }
+      setIcon();
+    });
+  })();
+</script>

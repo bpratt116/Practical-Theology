@@ -1,3 +1,17 @@
-<!-- Favicon — reusing the author avatar for now; swap in a dedicated favicon.png later if desired. -->
-<link rel="icon" type="image/jpeg" href="{{ '/assets/profile.jpg' | relative_url }}" />
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}" />
 <link rel="apple-touch-icon" href="{{ '/assets/profile.jpg' | relative_url }}" />
+
+<!-- Apply saved theme before paint to avoid a flash of the wrong colors. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('pt-theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = saved || (prefersLight ? 'light' : 'dark');
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>

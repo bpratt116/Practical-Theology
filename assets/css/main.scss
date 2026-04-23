@@ -8,11 +8,11 @@
    Inter for UI like buttons and meta. */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600&display=swap');
 
-/* Custom palette — deep slate background, warm cream text, antique gold accent. */
+/* Base palette — used only as SCSS compile-time seeds for Minimal Mistakes. */
 $background-color       : #15181c !default;
 $text-color             : #e9e2cf !default;
 $muted-text-color       : #a9a296 !default;
-$primary-color          : #c9a66b !default; /* antique gold */
+$primary-color          : #c9a66b !default;
 $border-color           : #2a2e34 !default;
 $code-background-color  : #0f1216 !default;
 $masthead-link-color    : #e9e2cf !default;
@@ -22,9 +22,75 @@ $masthead-link-color-hover : #c9a66b !default;
 @import "minimal-mistakes/skins/dark";
 @import "minimal-mistakes";
 
-/* -------- Custom overrides -------- */
+/* -------- Runtime theme variables -------- */
+/* Dark theme (default). */
+:root {
+  --pt-bg:      #15181c;
+  --pt-surface: #1a1e22;
+  --pt-card:    #0f1216;
+  --pt-text:    #e9e2cf;
+  --pt-muted:   #a9a296;
+  --pt-accent:  #c9a66b;
+  --pt-accent-contrast: #15181c;
+  --pt-border:  #2a2e34;
+  --pt-link-underline: rgba(201, 166, 107, 0.4);
+  --pt-hover-bg: rgba(201, 166, 107, 0.05);
+  --pt-cta-bg:   rgba(201, 166, 107, 0.04);
+}
 
-/* Typography */
+/* Light theme. */
+[data-theme="light"] {
+  --pt-bg:      #faf6ef;
+  --pt-surface: #f3eddf;
+  --pt-card:    #ffffff;
+  --pt-text:    #2d2a24;
+  --pt-muted:   #6b6358;
+  --pt-accent:  #8a5a2b;
+  --pt-accent-contrast: #faf6ef;
+  --pt-border:  #e3dcc9;
+  --pt-link-underline: rgba(138, 90, 43, 0.35);
+  --pt-hover-bg: rgba(138, 90, 43, 0.06);
+  --pt-cta-bg:   rgba(138, 90, 43, 0.05);
+}
+
+/* -------- Surfaces that Minimal Mistakes paints dark by default -------- */
+body,
+.page,
+.initial-content,
+.archive,
+.sidebar,
+.masthead,
+.greedy-nav,
+.page__footer,
+.page__hero-caption {
+  background-color: var(--pt-bg);
+  color: var(--pt-text);
+}
+
+.masthead,
+.page__footer {
+  border-color: var(--pt-border);
+}
+
+.greedy-nav {
+  background-color: var(--pt-bg);
+}
+.greedy-nav a {
+  color: var(--pt-text);
+}
+.greedy-nav a:hover {
+  color: var(--pt-accent);
+}
+
+.page__meta,
+.page__date,
+.sidebar .author__bio,
+.sidebar .author__urls-wrapper,
+.author__name {
+  color: var(--pt-muted);
+}
+
+/* -------- Typography -------- */
 body,
 .page__content,
 .page__content p,
@@ -32,7 +98,7 @@ body,
   font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: $text-color;
+  color: var(--pt-text);
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -41,7 +107,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: $text-color;
+  color: var(--pt-text);
 }
 
 .page__title {
@@ -60,12 +126,12 @@ h1, h2, h3, h4, h5, h6,
   font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
 }
 
-/* Site title: elegant gold serif */
+/* Site title: elegant accent serif */
 .site-title {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.6rem;
   font-weight: 700;
-  color: $primary-color;
+  color: var(--pt-accent);
 }
 
 /* Drop cap on first paragraph of posts */
@@ -75,30 +141,30 @@ h1, h2, h3, h4, h5, h6,
   font-size: 5rem;
   line-height: 0.9;
   font-weight: 700;
-  color: $primary-color;
+  color: var(--pt-accent);
   padding: 0.35rem 0.6rem 0 0;
   margin-top: 0.15rem;
 }
 
 /* Softer blockquote */
 blockquote {
-  border-left: 3px solid $primary-color;
-  color: $muted-text-color;
+  border-left: 3px solid var(--pt-accent);
+  color: var(--pt-muted);
   font-style: italic;
   padding-left: 1.25rem;
 }
 
-/* Link color and subtle underline */
+/* Links */
 a,
 .page__content a {
-  color: $primary-color;
+  color: var(--pt-accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201, 166, 107, 0.4);
+  border-bottom: 1px solid var(--pt-link-underline);
   transition: border-color 0.15s ease;
 }
 a:hover,
 .page__content a:hover {
-  border-bottom-color: $primary-color;
+  border-bottom-color: var(--pt-accent);
 }
 
 /* Card-like archive items */
@@ -108,22 +174,23 @@ a:hover,
   transition: background-color 0.2s ease;
 }
 .archive__item:hover {
-  background-color: rgba(201, 166, 107, 0.05);
+  background-color: var(--pt-hover-bg);
 }
 
-/* Homepage featured CTA card */
+/* Homepage / end-of-post CTA card */
 .home-cta {
   margin: 3rem auto;
   padding: 2rem 1.5rem;
-  border: 1px solid $border-color;
+  border: 1px solid var(--pt-border);
   border-radius: 8px;
   text-align: center;
   max-width: 42rem;
-  background: rgba(201, 166, 107, 0.04);
+  background: var(--pt-cta-bg);
+  color: var(--pt-text);
 }
 .home-cta h2 {
   margin-top: 0;
-  color: $primary-color;
+  color: var(--pt-accent);
 }
 .home-cta form {
   display: flex;
@@ -135,17 +202,17 @@ a:hover,
 .home-cta input[type="email"] {
   flex: 1 1 18rem;
   padding: 0.6rem 0.8rem;
-  border: 1px solid $border-color;
-  background: #0f1216;
-  color: $text-color;
+  border: 1px solid var(--pt-border);
+  background: var(--pt-card);
+  color: var(--pt-text);
   border-radius: 4px;
   font-family: "Inter", sans-serif;
 }
 .home-cta input[type="submit"],
 .home-cta button {
   padding: 0.6rem 1.2rem;
-  background: $primary-color;
-  color: #15181c;
+  background: var(--pt-accent);
+  color: var(--pt-accent-contrast);
   border: 0;
   border-radius: 4px;
   font-family: "Inter", sans-serif;
@@ -160,17 +227,17 @@ a:hover,
   width: 100%;
   padding: 0.6rem 0.8rem;
   margin: 0.25rem 0 1rem;
-  border: 1px solid $border-color;
-  background: #0f1216;
-  color: $text-color;
+  border: 1px solid var(--pt-border);
+  background: var(--pt-card);
+  color: var(--pt-text);
   border-radius: 4px;
   font-family: "Inter", sans-serif;
 }
 .page__content form button,
 .page__content form input[type="submit"] {
   padding: 0.6rem 1.3rem;
-  background: $primary-color;
-  color: #15181c;
+  background: var(--pt-accent);
+  color: var(--pt-accent-contrast);
   border: 0;
   border-radius: 4px;
   font-family: "Inter", sans-serif;
@@ -178,12 +245,12 @@ a:hover,
   cursor: pointer;
 }
 
-/* Post author footer (under post, above comments) */
+/* Post author footer */
 .post-author-footer {
   margin: 3rem 0 2rem;
   padding: 1.5rem;
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
+  border-top: 1px solid var(--pt-border);
+  border-bottom: 1px solid var(--pt-border);
   display: flex;
   gap: 1.25rem;
   align-items: center;
@@ -198,23 +265,58 @@ a:hover,
 .post-author-footer .bio-name {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.35rem;
-  color: $primary-color;
+  color: var(--pt-accent);
   margin-bottom: 0.15rem;
 }
 .post-author-footer .bio-text {
-  color: $muted-text-color;
+  color: var(--pt-muted);
   font-size: 0.95rem;
   margin: 0;
 }
 
-/* Giscus theming tweak */
+/* Giscus */
 .giscus,
 .giscus-frame {
   margin-top: 2rem;
 }
 
-/* -------- Mobile adjustments -------- */
+/* -------- Theme toggle button (top right, fixed) -------- */
+.theme-toggle {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--pt-border);
+  background: var(--pt-surface);
+  color: var(--pt-accent);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.theme-toggle:hover {
+  background: var(--pt-accent);
+  color: var(--pt-accent-contrast);
+  transform: scale(1.05);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--pt-accent);
+  outline-offset: 2px;
+}
 
+/* -------- PT-11: hide empty TOC -------- */
+.sidebar__right:has(.toc__menu:empty) {
+  display: none;
+}
+
+/* -------- Mobile -------- */
 @media (max-width: 600px) {
   .page__title {
     font-size: 1.9rem;
@@ -253,6 +355,13 @@ a:hover,
   .post-author-footer img {
     width: 64px;
     height: 64px;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 36px;
+    height: 36px;
   }
 }
 
