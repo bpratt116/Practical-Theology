@@ -50,6 +50,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-instagram"
       url: "https://instagram.com/bpratt116"
+    - label: "YouTube"
+      icon: "fab fa-youtube"
+      url: "https://youtube.com/@bpratt116"
 
 
 defaults:
@@ -132,6 +135,7 @@ social:
     - "https://github.com/bpratt116"
     - "https://twitter.com/bpratt116"
     - "https://instagram.com/bpratt116"
+    - "https://youtube.com/@bpratt116"
 twitter:
   username: bpratt116
 
