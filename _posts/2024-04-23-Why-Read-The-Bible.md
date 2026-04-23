@@ -39,3 +39,8 @@ The Holy Spirit is actively involved in the sanctification process of believers.
 
 # Conclusion
 The Holy Spirit plays a multifaceted role in the life of a believer. From being a seal of salvation to a teacher, a comforter, a giver of spiritual gifts, a source of power, and a sanctifier, the Holy Spirit is an integral part of our spiritual journey. Understanding and embracing these roles can lead to a deeper relationship with God and a more fulfilling Christian life.
+
+## Related reading
+
+- [Daily Bible Reading is Needed]({% post_url 2023-02-23-daily-bible-reading %}) — how the Spirit uses Scripture to shape us.
+- [Great Power and Great Promises]({% post_url 2024-04-25-Great-Power-and-Great-Promises %}) — the Spirit applies the promises of God.

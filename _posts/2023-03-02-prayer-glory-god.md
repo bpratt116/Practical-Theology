@@ -37,3 +37,8 @@ If you are looking to develop a habit of prayer, here are some practical tips:
 5. Keep a prayer journal. Keeping a prayer journal can help you to track your prayers, see how God is answering them, and reflect on your spiritual journey.
 
 In conclusion, prayer is an essential aspect of the Christian life, and it plays a significant role in the Baptist tradition. Through prayer, we can communicate with God, build our relationship with him, and seek guidance and wisdom. By making prayer a regular habit in our lives, we can deepen our faith and grow closer to God.
+
+## Related reading
+
+- [Daily Bible Reading is Needed]({% post_url 2023-02-23-daily-bible-reading %}) — the other half of daily devotion.
+- [Great Power and Great Promises]({% post_url 2024-04-25-Great-Power-and-Great-Promises %}) — what we're actually asking God to fulfill.

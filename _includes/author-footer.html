@@ -1,5 +1,8 @@
 <div class="post-author-footer">
-  <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" />
+  <img src="{{ site.author.avatar | relative_url }}"
+       alt="{{ site.author.name }}"
+       width="72" height="72"
+       loading="lazy" decoding="async" />
   <div>
     <div class="bio-name">{{ site.author.name }}</div>
     <p class="bio-text">{{ site.author.bio }}</p>

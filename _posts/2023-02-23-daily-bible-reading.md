@@ -37,3 +37,8 @@ If you are looking to start a daily Bible reading habit, here are some practical
   5. Discuss what you are reading with others. Sharing what you are learning with others can help you to gain new insights and deepen your understanding of the Bible.
 
 In conclusion, daily Bible reading is an important practice for Christians, especially for those who believe in the authority and sufficiency of the Bible. By reading the Bible regularly, we can develop a closer relationship with God, gain wisdom for daily living, strengthen our faith, and find comfort and hope in difficult times. With the help of some practical tips, anyone can start a daily Bible reading habit and reap the many benefits that come with it.
+
+## Related reading
+
+- [Great Power and Great Promises]({% post_url 2024-04-25-Great-Power-and-Great-Promises %}) — what Scripture promises the reader.
+- [Understanding the Holy Spirit's Role]({% post_url 2024-04-23-Why-Read-The-Bible %}) — the Spirit as teacher of the Word.
