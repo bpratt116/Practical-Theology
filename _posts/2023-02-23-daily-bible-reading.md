@@ -2,8 +2,8 @@
 title: "Daily Bible Reading is Needed"
 tagline: ""
 header:
-  overlay_image: /assets/posts/bible-read.jpg
-  teaser: /assets/posts/bible-read.jpg
+  overlay_image: /assets/posts/bible-read.webp
+  teaser: /assets/posts/bible-read.webp
   overlay_color: "#000"
   overlay_filter: "0.5"
 categories:
