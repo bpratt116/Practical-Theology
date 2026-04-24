@@ -294,6 +294,96 @@ a:hover,
   margin-top: 2rem;
 }
 
+/* -------- Light-mode polish (Tier 4 #1) -------- */
+/* Override surfaces that the Minimal Mistakes dark skin compiled with
+   dark-tinted backgrounds, so they flip when the theme is toggled. */
+[data-theme="light"] {
+  /* Code blocks and inline code */
+  pre,
+  code,
+  kbd,
+  samp,
+  .highlight,
+  div.highlighter-rouge,
+  figure.highlight {
+    background-color: #f3eddf;
+    color: var(--pt-text);
+    border-color: var(--pt-border);
+  }
+
+  /* Minimal Mistakes callout notices */
+  .notice,
+  .notice--primary,
+  .notice--info,
+  .notice--warning,
+  .notice--danger,
+  .notice--success {
+    background-color: var(--pt-surface);
+    color: var(--pt-text);
+    border-radius: 6px;
+  }
+
+  /* TOC (sticky sidebar on posts) */
+  .toc,
+  .toc .nav__title {
+    background-color: var(--pt-surface);
+    color: var(--pt-text);
+    border-color: var(--pt-border);
+  }
+  .toc ul > li > a:hover {
+    background-color: var(--pt-hover-bg);
+  }
+
+  /* Pagination buttons */
+  .pagination--pager,
+  .pagination li a {
+    background-color: var(--pt-card);
+    color: var(--pt-text);
+    border-color: var(--pt-border);
+  }
+  .pagination li a:hover {
+    background-color: var(--pt-accent);
+    color: var(--pt-accent-contrast);
+  }
+
+  /* Tag / category chips at the bottom of posts */
+  .page__taxonomy .page__taxonomy-item {
+    background-color: var(--pt-surface);
+    color: var(--pt-text);
+  }
+  .page__taxonomy .page__taxonomy-item:hover {
+    background-color: var(--pt-accent);
+    color: var(--pt-accent-contrast);
+  }
+
+  /* Share buttons */
+  .page__share .btn {
+    background-color: var(--pt-surface);
+    color: var(--pt-text);
+  }
+
+  /* Related posts cards */
+  .page__related .archive__item {
+    background-color: var(--pt-surface);
+  }
+
+  /* Footer */
+  .page__footer {
+    background-color: var(--pt-surface);
+    color: var(--pt-muted);
+  }
+
+  /* Search modal */
+  .search-content {
+    background-color: var(--pt-bg);
+  }
+  .search-content .search-input {
+    background-color: var(--pt-card);
+    color: var(--pt-text);
+    border-color: var(--pt-border);
+  }
+}
+
 /* -------- Subscribe nav button (Tier 3 #11) -------- */
 .greedy-nav a[href$="/subscribe/"] {
   background: var(--pt-accent);
