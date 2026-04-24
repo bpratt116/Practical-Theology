@@ -99,6 +99,12 @@ tag_archive:
   type: liquid
   path: /tags/
 
+# Collections
+collections:
+  series:
+    output: true
+    permalink: /series/:path/
+
 # Comments — Giscus (https://giscus.app)
 # To enable: 1) enable Discussions on the repo, 2) install the Giscus GitHub app,
 # 3) visit https://giscus.app to generate the repo_id and category_id, then paste below.

@@ -1,25 +1,31 @@
 ---
+title: "Page Not Found"
 permalink: /404.html
-layout: default
+layout: single
+author_profile: false
+excerpt: "This page wandered off."
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<p>The page you're looking for isn't here. Maybe the link is old, the URL
+has a typo, or the page has been moved.</p>
 
-<div class="container">
-  <h1>404</h1>
+<p>A few places to try:</p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<ul>
+  <li><a href="{{ '/' | relative_url }}">Home</a></li>
+  <li><a href="{{ '/posts/' | relative_url }}">All posts</a></li>
+  <li><a href="{{ '/archive/' | relative_url }}">Archive by year</a></li>
+  <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+  <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+</ul>
+
+<h2>Recent posts</h2>
+
+<ul>
+  {% for post in site.posts limit: 5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>&middot; {{ post.date | date: "%B %-d, %Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>

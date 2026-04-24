@@ -294,6 +294,157 @@ a:hover,
   margin-top: 2rem;
 }
 
+/* -------- Subscribe nav button (Tier 3 #11) -------- */
+.greedy-nav a[href$="/subscribe/"] {
+  background: var(--pt-accent);
+  color: var(--pt-accent-contrast) !important;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+.greedy-nav a[href$="/subscribe/"]:hover {
+  background: var(--pt-text);
+  color: var(--pt-bg) !important;
+}
+
+/* -------- Scripture blockquote (Tier 3 #14) -------- */
+/* Usage in markdown:
+     > "Ask and it will be given to you..."
+     > — Matthew 7:7
+     {: .scripture} */
+blockquote.scripture {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  border-left: none;
+  padding: 1.25rem 2rem;
+  margin: 2rem 0;
+  color: var(--pt-text);
+  position: relative;
+  text-align: center;
+}
+blockquote.scripture::before {
+  content: "\201C";
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--pt-accent);
+  position: absolute;
+  left: 0.5rem;
+  top: -0.25rem;
+  opacity: 0.8;
+}
+blockquote.scripture p:last-child {
+  font-style: normal;
+  font-size: 0.85rem;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-muted);
+  margin-top: 0.5rem;
+}
+
+/* Inline linked Scripture reference (plugin output) */
+a.scripture-ref {
+  border-bottom-style: dotted;
+}
+
+/* -------- Archive page list (Tier 3 #10) -------- */
+.archive-year {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.archive-year li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--pt-border);
+}
+.archive-year time {
+  flex: 0 0 4.5rem;
+  color: var(--pt-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Series list on /series/:key/ pages */
+.series-list {
+  padding-left: 1.5rem;
+}
+.series-list li {
+  margin-bottom: 1.25rem;
+}
+.series-list time {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--pt-muted);
+  font-family: "Inter", sans-serif;
+}
+
+/* -------- Print stylesheet (Tier 3 #13) -------- */
+@media print {
+  .masthead,
+  .sidebar,
+  .page__footer,
+  .page__share,
+  .page__taxonomy,
+  .home-cta,
+  .post-author-footer,
+  .giscus,
+  .giscus-frame,
+  .theme-toggle,
+  .pagination,
+  .greedy-nav,
+  .sidebar__right,
+  #comments,
+  .site-footer-links {
+    display: none !important;
+  }
+
+  body,
+  .page__content,
+  .page {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .page__title,
+  .site-title,
+  blockquote.scripture,
+  blockquote.scripture::before,
+  blockquote.scripture p:last-child,
+  .post-author-footer .bio-name {
+    color: black !important;
+  }
+
+  a {
+    color: black !important;
+    border-bottom: none !important;
+    text-decoration: underline;
+  }
+
+  /* Print URLs after links so they're still reachable offline. */
+  .page__content a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+  .page__content a[href^="#"]::after,
+  .page__content a.scripture-ref::after {
+    content: "";
+  }
+
+  blockquote {
+    break-inside: avoid;
+  }
+}
+
 /* -------- Theme toggle button (top right, fixed) -------- */
 .theme-toggle {
   position: fixed;

@@ -1,0 +1,33 @@
+---
+layout: single
+---
+
+<div class="page__content">
+  {{ content }}
+
+  <h2>Posts in this series</h2>
+  {% assign key = page.key %}
+  {% assign series_posts = site.posts | where: "series", key %}
+  {% if page.order %}
+    {% assign ordered = "" | split: "," %}
+    {% for slug in page.order %}
+      {% assign match = series_posts | where: "slug", slug | first %}
+      {% if match %}
+        {% assign ordered = ordered | push: match %}
+      {% endif %}
+    {% endfor %}
+    {% assign series_posts = ordered %}
+  {% endif %}
+
+  <ol class="series-list">
+    {% for post in series_posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%B %-d, %Y" }}
+        </time>
+        {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</div>
