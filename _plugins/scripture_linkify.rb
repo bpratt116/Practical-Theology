@@ -1,8 +1,8 @@
 # Auto-link Scripture references in post content.
 #
-# Turns strings like "2 Peter 1:3", "Ephesians 1:13-14", and
-# "1 Corinthians 12:4-11" into links to BibleGateway (ESV).
-# Runs before kramdown so it only matches in body text, not front matter.
+# Runs AFTER Kramdown has turned markdown into HTML, so we can
+# safely skip content inside <code>, <pre>, and existing <a> tags
+# rather than hoping kramdown passes our anchors through untouched.
 
 module PT
   module ScriptureLinkify
@@ -20,31 +20,42 @@ module PT
       "Jude", "Revelation"
     ].freeze
 
-    BOOK_PATTERN = "(?:#{BOOKS.join('|')})"
-    # (1|2|3)? Book Chapter:Verse[-Verse][,Verse]
-    REF_PATTERN = /
-      (?<!href=["'])                       # skip if already inside an href
-      (?<prefix>\b(?:1|2|3|I{1,3})\s)?     # optional book number
-      (?<book>#{BOOK_PATTERN})             # book name
-      \s+
-      (?<chapter>\d+)                      # chapter
-      :
-      (?<verse>\d+(?:[-–]\d+)?        # verse or verse range
-                 (?:,\s*\d+(?:[-–]\d+)?)*)  # plus optional extra verses
-    /ix
+    # Book alternation. "Song of Solomon" has a literal space, so we
+    # write the regex without /x mode to avoid Ruby stripping spaces
+    # from the interpolated alternation.
+    BOOK_ALT = BOOKS.join("|")
+    REF_PATTERN = /(?<prefix>(?:\b[123]|\bI{1,3})\s)?(?<book>#{BOOK_ALT})\s+(?<chapter>\d+):(?<verse>\d+(?:[-–]\d+)?(?:,\s*\d+(?:[-–]\d+)?)*)/
 
-    def self.apply(content)
-      content.gsub(REF_PATTERN) do
-        match = Regexp.last_match
-        ref = [match[:prefix], match[:book], " ", match[:chapter], ":", match[:verse]]
-                .compact.join.gsub(/\s+/, " ").strip
-        search = ref.gsub(" ", "+")
-        %(<a href="https://www.biblegateway.com/passage/?search=#{search}&version=ESV" class="scripture-ref" target="_blank" rel="noopener">#{ref}</a>)
+    # Split the HTML into safe and unsafe regions. Never linkify inside
+    # <a>, <code>, or <pre> blocks.
+    SPLITTER = %r{(<a\b[^>]*>.*?</a>|<code\b[^>]*>.*?</code>|<pre\b[^>]*>.*?</pre>)}m
+
+    def self.link(ref)
+      search = ref.gsub(/\s+/, " ").strip.gsub(" ", "+")
+      text = ref.gsub(/\s+/, " ").strip
+      %(<a href="https://www.biblegateway.com/passage/?search=#{search}&amp;version=ESV" class="scripture-ref" target="_blank" rel="noopener">#{text}</a>)
+    end
+
+    def self.linkify_text(chunk)
+      chunk.gsub(REF_PATTERN) do
+        m = Regexp.last_match
+        ref = "#{m[:prefix]}#{m[:book]} #{m[:chapter]}:#{m[:verse]}"
+        link(ref)
       end
+    end
+
+    def self.apply(html)
+      return html if html.nil?
+      parts = html.split(SPLITTER)
+      # Odd indices are skipped regions; even indices are safe to process.
+      parts.each_with_index.map { |p, i| i.even? ? linkify_text(p) : p }.join
     end
   end
 end
 
-Jekyll::Hooks.register :posts, :pre_render do |post|
-  post.content = PT::ScriptureLinkify.apply(post.content)
+Jekyll::Hooks.register :posts, :post_render do |post|
+  before = post.output.to_s.scan(/class="scripture-ref"/).length
+  post.output = PT::ScriptureLinkify.apply(post.output)
+  after = post.output.to_s.scan(/class="scripture-ref"/).length
+  Jekyll.logger.info "ScriptureLinkify:", "#{post.relative_path} -> added #{after - before} link(s)"
 end
