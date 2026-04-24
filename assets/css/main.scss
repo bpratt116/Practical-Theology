@@ -86,7 +86,8 @@ body,
 .page__date,
 .sidebar .author__bio,
 .sidebar .author__urls-wrapper,
-.author__name {
+.author__name,
+.archive__subtitle {
   color: var(--pt-muted);
 }
 
@@ -175,6 +176,19 @@ a:hover,
 }
 .archive__item:hover {
   background-color: var(--pt-hover-bg);
+}
+
+/* Reserve layout space for teaser images so they don't cause CLS. */
+.archive__item-teaser {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.archive__item-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Homepage / end-of-post CTA card */

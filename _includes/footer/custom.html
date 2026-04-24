@@ -15,6 +15,19 @@
 </button>
 
 <script>
+  // Promote the sidebar author name from h3 to h2 so the document heading
+  // order starts at h1 -> h2 instead of h1 -> h3 (Lighthouse a11y fix).
+  (function () {
+    document.querySelectorAll('h3.author__name').forEach(function (h3) {
+      var h2 = document.createElement('h2');
+      Array.from(h3.attributes).forEach(function (a) {
+        h2.setAttribute(a.name, a.value);
+      });
+      h2.innerHTML = h3.innerHTML;
+      h3.replaceWith(h2);
+    });
+  })();
+
   (function () {
     var btn = document.getElementById('pt-theme-toggle');
     var icon = document.getElementById('pt-theme-icon');
