@@ -6,9 +6,9 @@ author_profile: true
 excerpt: "Recent messages, straight from YouTube."
 ---
 
-Recent sermons and teaching. This list refreshes automatically from my [YouTube channel]({{ site.sermons.channel_url }}).
+Recent sermons and teaching. Older messages refresh automatically from my [YouTube channel]({{ site.sermons.channel_url }}); recent LifePoint Church messages link to the full worship-service livestream.
 
-{% assign sermons = site.data.sermons | sort: "published" | reverse %}
+{% include sermons-merged.html %}{% assign sermons = sermons_merged %}
 {% if sermons and sermons.size > 0 %}
 <div class="sermon-grid" markdown="0">
   {% for s in sermons %}{% include sermon-card.html sermon=s %}{% endfor %}

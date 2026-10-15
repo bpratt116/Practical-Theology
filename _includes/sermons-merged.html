@@ -1,0 +1,14 @@
+{%- comment -%}
+  Sets `sermons_merged`: _data/sermons_curated.yml + _data/sermons.json (RSS),
+  newest first, de-duplicated by youtube_id (curated entries win).
+  Done in Liquid because the github-pages gem disables custom plugins.
+{%- endcomment -%}
+{%- assign _all = site.data.sermons_curated | default: empty | concat: site.data.sermons | sort: "date" | reverse -%}
+{%- assign sermons_merged = "" | split: "" -%}
+{%- assign _seen = "," -%}
+{%- for s in _all -%}
+  {%- capture _key -%},{{ s.youtube_id }},{%- endcapture -%}
+  {%- if _seen contains _key -%}{%- continue -%}{%- endif -%}
+  {%- assign _seen = _seen | append: s.youtube_id | append: "," -%}
+  {%- assign sermons_merged = sermons_merged | push: s -%}
+{%- endfor -%}

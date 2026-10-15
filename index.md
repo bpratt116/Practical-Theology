@@ -20,7 +20,7 @@ Practical Theology is where I work out, in writing, what it means to love God an
 
 The hope is simple: that careful attention to Scripture leads to a faith that is both grounded and lived. New posts land occasionally; the best way to catch them is the newsletter below.
 
-{% assign latest = site.data.sermons | sort: "published" | last %}
+{% include sermons-merged.html %}{% assign latest = sermons_merged | first %}
 {% if latest %}
 <section class="home-latest-sermon" markdown="0">
   <h2>Latest Sermon</h2>

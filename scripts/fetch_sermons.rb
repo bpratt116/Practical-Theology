@@ -24,7 +24,8 @@ begin
     vid = e.elements["yt:videoId"].text
     desc = e.elements["media:group/media:description"]&.text.to_s.strip
     videos << {
-      "id" => vid, "title" => title,
+      "id" => vid, "youtube_id" => vid, "title" => title,
+      "date" => e.elements["published"].text[0, 10],
       "published" => e.elements["published"].text,
       "url" => "https://www.youtube.com/watch?v=#{vid}",
       "thumbnail" => "https://i.ytimg.com/vi/#{vid}/hqdefault.jpg",

@@ -1,11 +1,14 @@
 {% assign s = include.sermon %}
+{% capture href %}https://www.youtube.com/watch?v={{ s.youtube_id }}{% if s.start %}&t={{ s.start }}s{% endif %}{% endcapture %}
+{% assign thumb = "https://i.ytimg.com/vi/" | append: s.youtube_id | append: "/hqdefault.jpg" %}
 <article class="sermon-card">
-  <a class="sermon-card__thumb" href="{{ s.url }}" target="_blank" rel="noopener" aria-label="Watch “{{ s.title | escape }}” on YouTube (opens in a new tab)">
-    <img src="{{ s.thumbnail }}" alt="" loading="lazy" width="480" height="360">
+  <a class="sermon-card__thumb" href="{{ href | escape }}" target="_blank" rel="noopener" aria-label="Watch “{{ s.title | escape }}” on YouTube (opens in a new tab)">
+    <img src="{{ thumb }}" alt="" loading="lazy" width="480" height="360">
     <span class="sermon-card__play" aria-hidden="true"><i class="fas fa-play"></i></span>
   </a>
   <div class="sermon-card__body">
-    <h3 class="sermon-card__title"><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title | escape }}</a></h3>
-    <p class="sermon-card__date"><time datetime="{{ s.published }}">{{ s.published | date: "%B %-d, %Y" }}</time></p>
+    <h3 class="sermon-card__title"><a href="{{ href | escape }}" target="_blank" rel="noopener">{{ s.title | escape }}</a></h3>
+    {% if s.passage %}<p class="sermon-card__passage">{{ s.passage | escape }}</p>{% endif %}
+    <p class="sermon-card__date"><time datetime="{{ s.date }}">{{ s.date | date: "%B %-d, %Y" }}</time></p>
   </div>
 </article>
