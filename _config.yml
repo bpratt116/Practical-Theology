@@ -55,6 +55,14 @@ author:
       url: "https://youtube.com/@bpratt116"
 
 
+# Sermons page (/sermons/) — pulled from the YouTube RSS feed at build time.
+# Set playlist_id instead to use a specific playlist (it takes precedence).
+sermons:
+  channel_id: "UCREsaw2XYBwbINGefXhe4uw"   # youtube.com/@bpratt116
+  playlist_id: ""
+  title_filter: ""                         # optional regex, e.g. "Pratt"
+  channel_url: "https://www.youtube.com/@bpratt116"
+
 defaults:
   # _posts
   - scope:
@@ -72,6 +80,15 @@ defaults:
       toc_label: "On this page"
       toc_icon: "book"
       
+
+exclude:
+  - scripts/
+  - vendor/
+  - .bundle/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules/
 
 include:
   - _pages
