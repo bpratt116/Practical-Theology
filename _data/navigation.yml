@@ -6,6 +6,8 @@ main:
     url: /about/
   - title: "Posts"
     url: /posts/
+  - title: "Sermons"
+    url: /sermons/
   - title: "Archive"
     url: /archive/
   - title: "Categories"

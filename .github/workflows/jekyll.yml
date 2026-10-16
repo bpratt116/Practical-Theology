@@ -11,6 +11,10 @@ on:
   push:
     branches: ["master"]
 
+  # Rebuild daily so new YouTube sermons appear automatically (06:00 UTC)
+  schedule:
+    - cron: "0 6 * * *"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -42,6 +46,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Refresh sermons from YouTube RSS
+        run: ruby scripts/fetch_sermons.rb
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
