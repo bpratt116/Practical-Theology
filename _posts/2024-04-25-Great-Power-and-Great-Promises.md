@@ -14,7 +14,7 @@ tags:
   - bible
   - christian
   - evangelical
-last_modified_at: 2024-04-23
+last_modified_at: 2024-04-25
 ---
 
 In 2 Peter, the author reminds believers of their divine nature and calls them to remember that they are warned of the influence of false teachers in the times ahead. Peter states that God has given them all things necessary to live a godly life through the knowledge of Him and His precious and very great promises so that they may become partakers of the divine nature, having escaped from the corruption of the world.
@@ -27,5 +27,5 @@ By living out these qualities, believers can gain a better understanding of God�
 
 ## Related reading
 
-- [Understanding the Holy Spirit's Role]({% post_url 2024-04-23-Why-Read-The-Bible %}) — the Spirit empowers believers to live out the promises.
+- [Understanding the Holy Spirit's Role]({% post_url 2024-04-23-understanding-the-holy-spirits-role %}) — the Spirit empowers believers to live out the promises.
 - [Daily Bible Reading is Needed]({% post_url 2023-02-23-daily-bible-reading %}) — where these promises are discovered.

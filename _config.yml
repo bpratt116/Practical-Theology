@@ -29,14 +29,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   Notes on Scripture, prayer, and the Christian life by Brendan Pratt.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://brendanpratt.org" # the base hostname & protocol for your site
-twitter_username: bpratt116
-github_username: bpratt116
-
 author:
   name     : "Brendan Pratt"
   avatar   : "/assets/profile.jpg"
   bio      : "Practical Theology for every day life"
-  location : "Ohio, USA"
+  location : "Quincy, Illinois"
   links:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
@@ -101,7 +98,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-redirect-from
 
 # Search (Lunr is built into Minimal Mistakes)
 search: true
@@ -115,12 +112,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-# Collections
-collections:
-  series:
-    output: true
-    permalink: /series/:path/
 
 # Comments — Giscus (https://giscus.app)
 # To enable: 1) enable Discussions on the repo, 2) install the Giscus GitHub app,

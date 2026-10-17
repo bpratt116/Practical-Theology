@@ -20,7 +20,7 @@ See [Google's privacy policy](https://policies.google.com/privacy) for the full 
 
 Comments are powered by [**Giscus**](https://giscus.app), which stores them as discussions on the GitHub repository for this site. To comment, you sign in with your GitHub account and GitHub stores your identity and comment history under their terms.
 
-If you never comment, no data flows to GitHub from here.
+Opening a post loads Giscus, which reads that post's GitHub discussion, even if you never comment. GitHub receives the page address and the usual browser data for that request.
 
 See [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
 

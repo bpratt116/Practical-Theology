@@ -11,7 +11,6 @@ header:
       url: "/posts/"
 excerpt: "Notes on Scripture, prayer, and the Christian life."
 entries_layout: grid
-paginate: 3
 ---
 
 ## Welcome
@@ -23,7 +22,11 @@ The hope is simple: that careful attention to Scripture leads to a faith that is
 {% include sermons-merged.html %}{% assign latest = sermons_merged | first %}
 {% if latest %}
 <section class="home-latest-sermon" markdown="0">
-  <h2>Latest Sermon</h2>
+  {% if latest.source contains "full service" %}
+  <h2>Latest service</h2>
+  {% else %}
+  <h2>Latest sermon</h2>
+  {% endif %}
   {% include sermon-card.html sermon=latest %}
   <p><a href="{{ '/sermons/' | relative_url }}">All sermons &rarr;</a></p>
 </section>
@@ -38,7 +41,8 @@ The hope is simple: that careful attention to Scripture leads to a faith that is
     target="popupwindow"
     onsubmit="window.open('https://buttondown.com/bpratt116', 'popupwindow')"
   >
-    <input type="email" name="email" placeholder="you@example.com" required />
+    <label class="sr-only" for="home-email">Email address</label>
+    <input id="home-email" type="email" name="email" placeholder="you@example.com" required />
     <input type="submit" value="Subscribe" />
   </form>
 </div>

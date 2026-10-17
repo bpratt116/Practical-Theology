@@ -41,4 +41,4 @@ In conclusion, daily Bible reading is an important practice for Christians, espe
 ## Related reading
 
 - [Great Power and Great Promises]({% post_url 2024-04-25-Great-Power-and-Great-Promises %}) — what Scripture promises the reader.
-- [Understanding the Holy Spirit's Role]({% post_url 2024-04-23-Why-Read-The-Bible %}) — the Spirit as teacher of the Word.
+- [Understanding the Holy Spirit's Role]({% post_url 2024-04-23-understanding-the-holy-spirits-role %}) — the Spirit as teacher of the Word.

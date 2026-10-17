@@ -19,6 +19,7 @@ has a typo, or the page has been moved.</p>
   <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
 </ul>
 
+{% if site.posts.size > 0 %}
 <h2>Recent posts</h2>
 
 <ul>
@@ -29,3 +30,4 @@ has a typo, or the page has been moved.</p>
     </li>
   {% endfor %}
 </ul>
+{% endif %}

@@ -1,71 +1,83 @@
-# Hand-curated sermons that the RSS feed can't pick up (e.g. LifePoint livestreams,
-# which are all titled "LifePoint Worship Service").
-# Fields: date (YYYY-MM-DD), title, passage, youtube_id, start (optional, seconds
-# into the video where the sermon begins), source.
-# Merged with the @bpratt116 RSS feed by _includes/sermons-merged.html (newest first,
-# de-duped by youtube_id; curated entries win). Keep dates quoted.
+# Hand-curated sermons the RSS feed can't pick up (LifePoint livestreams are
+# all titled "LifePoint Worship Service").
+# Fields: date (YYYY-MM-DD), published (end of that day, used for sort),
+# title, passage, youtube_id, start (optional seconds where the sermon begins),
+# source (shown on the card).
+# Merged with the @bpratt116 feed by _includes/sermons-merged.html.
+# Curated rows win on youtube_id. Keep dates quoted.
 
 - date: "2026-10-11"
+  published: "2026-10-11T23:59:59+00:00"
   title: "Work Out Your Salvation"
   passage: "Phil 2:12-18"
   youtube_id: "DLgESzZ9K5E"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2026-09-13"
+  published: "2026-09-13T23:59:59+00:00"
   title: "Joy in the Gospel Partnership"
   passage: "Phil 1:3-11"
   youtube_id: "u-YdL7-rjDI"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2026-07-19"
+  published: "2026-07-19T23:59:59+00:00"
   title: "The Shortest Psalm, the Biggest Praise"
   passage: "Ps 117"
   youtube_id: "X1GJp4VOJ-M"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2026-01-11"
+  published: "2026-01-11T23:59:59+00:00"
   title: "Forgotten Lives: Achan"
   passage: "Joshua 7"
   youtube_id: "FBQZ8DZpM_w"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2025-12-07"
+  published: "2025-12-07T23:59:59+00:00"
   title: "Advent Peace: Jesus Prays for His People"
   passage: "John 17:6-19"
   youtube_id: "431BSOVP-dU"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2025-10-05"
+  published: "2025-10-05T23:59:59+00:00"
   title: "The Promised Helper"
   passage: "John 14"
   youtube_id: "4PswYOyDy1Y"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2025-08-31"
+  published: "2025-08-31T23:59:59+00:00"
   title: "The King Arrives"
   passage: "John 12:12-26"
   youtube_id: "_efmmwKfhnE"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2025-03-30"
+  published: "2025-03-30T23:59:59+00:00"
   title: "The Son's Authority"
   passage: "John 5:19-29"
   youtube_id: "T_Tvs-gKd7o"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2025-02-09"
+  published: "2025-02-09T23:59:59+00:00"
   title: "You Must Be Born Again"
   passage: "John 3"
   youtube_id: "hskMxFzBG1I"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2024-10-27"
+  published: "2024-10-27T23:59:59+00:00"
   title: "Gospel Ministry That Pleases God"
   passage: "1 Thess 2:1-12"
   youtube_id: "nP_1BlZu1S0"
   source: "LifePoint Church livestream (full service)"
 
 - date: "2024-08-18"
+  published: "2024-08-18T23:59:59+00:00"
   title: "Fret Not: Trusting God When the Wicked Prosper"
   passage: "Ps 37:1-11"
   youtube_id: "7qTIF4dp1RY"
@@ -73,6 +85,7 @@
 
 # Pending Brendan's decision:
 # - date: "2026-09-06"
+#   published: "2026-09-06T23:59:59+00:00"
 #   title: "Philippians Introduction (with Pastor Jay)"
 #   passage: "Phil 1:1-11"
 #   youtube_id: "ctdhm8dM1FU"

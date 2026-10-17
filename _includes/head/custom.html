@@ -16,6 +16,8 @@
       if (theme === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn("Saved theme could not be read", e);
+    }
   })();
 </script>
