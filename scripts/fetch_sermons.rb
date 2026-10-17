@@ -26,14 +26,47 @@ rescue JSON::ParserError
   []
 end
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.open_timeout = 10
-http.read_timeout = 20
-res = http.request(Net::HTTP::Get.new(url))
-raise "HTTP #{res.code}" unless res.is_a?(Net::HTTPSuccess)
+def fetch_feed(url)
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.open_timeout = 10
+  http.read_timeout = 20
+  req = Net::HTTP::Get.new(url.request_uri)
+  req["User-Agent"] = "PracticalTheology sermon archive"
+  res = http.request(req)
+  raise "HTTP #{res.code} for #{url}" unless res.is_a?(Net::HTTPSuccess)
+  res.body
+end
 
-doc = REXML::Document.new(res.body)
+def keep_archive!(error, path)
+  existing = load_existing(path)
+  if existing.empty?
+    warn "fetch_sermons: #{error.message}; no archive to keep"
+    exit 1
+  end
+  warn "fetch_sermons: #{error.message}; keeping #{existing.size} sermons already in #{path}"
+  exit 0
+end
+
+body = nil
+begin
+  body = fetch_feed(url)
+rescue => e
+  channel = cfg["channel_id"].to_s
+  if cfg["playlist_id"].to_s.empty? && channel.start_with?("UC")
+    fallback = URI("https://www.youtube.com/feeds/videos.xml?playlist_id=UU#{channel[2..]}")
+    warn "fetch_sermons: #{e.message}; trying uploads playlist"
+    begin
+      body = fetch_feed(fallback)
+    rescue => fallback_error
+      keep_archive!(fallback_error, out)
+    end
+  else
+    keep_archive!(e, out)
+  end
+end
+
+doc = REXML::Document.new(body)
 filter = cfg["title_filter"].to_s.empty? ? nil : Regexp.new(cfg["title_filter"], Regexp::IGNORECASE)
 incoming = []
 doc.elements.each("feed/entry") do |e|
