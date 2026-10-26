@@ -18,7 +18,7 @@ sitemap: false
 
 <div class="bp-links-bio">
   <img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Brendan Pratt">
-  <p>Pastor &amp; app maker. Practical theology, prayer, and calm tools for faith and family.</p>
+  <p>Pastor &amp; app maker. Practical theology, prayer, and apps for faith and family.</p>
 </div>
 
 <ul class="bp-links">
