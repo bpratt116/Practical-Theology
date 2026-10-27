@@ -41,9 +41,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-github"
       url: "https://github.com/bpratt116"
-    - label: "Twitter"
-      icon: "fab fa-twitter"
-      url: "https://twitter.com/bpratt116"
+    - label: "X"
+      icon: "fab fa-x-twitter"
+      url: "https://x.com/bpratt116"
     - label: "Instagram"
       icon: "fab fa-instagram"
       url: "https://instagram.com/bpratt116"
@@ -147,7 +147,7 @@ social:
   links:
     - "https://www.linkedin.com/in/brendanpratt/"
     - "https://github.com/bpratt116"
-    - "https://twitter.com/bpratt116"
+    - "https://x.com/bpratt116"
     - "https://instagram.com/bpratt116"
     - "https://youtube.com/@bpratt116"
 twitter:
